@@ -39,13 +39,14 @@ async function verifyPurchase(receiptData) {
   return response.data;
 }
 
-app.post('/verify-purchase', async (req, res) => {
-  const { receiptData, userId } = req.body;
-  try {
-    const purchase = await verifyPurchase(receiptData);
-    if (purchase.status === 0) { // Purchase is verified
-      // Record the purchase and referral in the database
-      // Example: savePurchase(userId, purchase);
+app.post('/verify-purchase', (req, res) => {
+  const { packageName, productId, token } = req.body;
+
+  // Your verification logic here
+  // Example response
+  res.json({ success: true, message: 'Purchase verified' });
+});
+
       res.status(200).send('Purchase verified and recorded');
     } else {
       res.status(400).send('Purchase not verified');
