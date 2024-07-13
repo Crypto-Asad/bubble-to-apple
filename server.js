@@ -45,7 +45,7 @@ app.post('/verify-purchase', (req, res) => {
   // Your verification logic here
   // Example response
   res.json({ success: true, message: 'Purchase verified' });
-});
+}
 
       res.status(200).send('Purchase verified and recorded');
     } else {
